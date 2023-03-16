@@ -1,0 +1,39 @@
+<body>
+  <h1>Diretivas</h1>
+  <h3 *ngIf="true">Estou aqui!</h3>
+  <h3 *ngIf="condition; else elseBlock">Achouuu!</h3>
+  <ng-template #elseBlock>
+    <h3>Está aqui!</h3>
+  </ng-template>
+  <div *ngIf="login">
+    <h3>Seja Bem Vindo!</h3>
+  </div>
+  <div *ngIf="!login">
+    <h3>Por favor, faça o login!</h3>
+  </div>
+  <div *ngIf="conditionClick">Seja Bem Vindo!</div>
+  <div *ngIf="conditionClick">Por favor, faça o login!</div>
+  <button (click)="onClick()">
+    <h3>Login do Sistema</h3>
+  </button>
+  <hr>
+  <button (click)="onClickAdd()">Add item</button>
+  <button (click)="onClickDel()">Del Item</button>
+  <ul>
+    <li *ngFor="let item of list">{{ item.nome }} - idade = {{item.idade}}</li>
+  </ul>
+  <hr>
+  <h2>Switch</h2>
+  <div [ngSwitch]="nome">
+    <h2 *ngSwitchCase="'Davi'">Davi</h2>
+    <h2 *ngSwitchCase="'Magalhães'">Magalhães</h2>
+    <h2 *ngSwitchCase="'Teixeira'">Teixeira</h2>
+    <h3 *ngSwitchDefault>Nenhum nome encontrado!</h3>
+  </div>
+  <ul *ngFor="let car of cars" [ngSwitch]="car.color">
+    <li *ngSwitchCase="'azul'">{{car.name}}={{car.color}}</li>
+    <li *ngSwitchCase="'verde'">{{car.name}}={{car.color}}</li>
+    <li *ngSwitchCase="'amarelo'">{{car.name}}={{car.color}}</li>
+    <li *ngSwitchCase="'vermelho'">{{car.name}}={{car.color}}</li>
+  </ul>
+</body>
